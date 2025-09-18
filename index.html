@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>wispix | a living bestiary of spirit-animals</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Quicksand', sans-serif;
+            background: radial-gradient(ellipse at bottom, #0f172a 0%, #020617 100%);
+            color: #e2e8f0;
+            min-height: 100vh;
+        }
+        .spirit-card {
+            background: rgba(15, 23, 42, 0.6);
+            border: 1px solid rgba(148, 163, 184, 0.1);
+            transition: all 0.3s ease;
+            backdrop-filter: blur(4px);
+        }
+        .spirit-card:hover {
+            border-color: rgba(167, 139, 250, 0.4);
+            box-shadow: 0 0 15px rgba(167, 139, 250, 0.2);
+        }
+        .modal-overlay {
+            background: rgba(2, 6, 23, 0.95);
+        }
+        .spirit-silhouette {
+            filter: drop-shadow(0 0 8px rgba(167, 139, 250, 0.3));
+        }
+        .glow-text {
+            text-shadow: 0 0 8px rgba(167, 139, 250, 0.4);
+        }
+        .gradient-bg {
+            background: linear-gradient(135deg, rgba(15, 23, 42, 0.8) 0%, rgba(30, 41, 59, 0.5) 100%);
+        }
+    </style>
+</head>
+<body class="antialiased">
+    <!-- Header -->
+    <header class="container mx-auto px-4 py-8">
+        <div class="flex flex-col items-center text-center">
+            <h1 class="text-5xl font-light tracking-tighter glow-text">wispix</h1>
+            <p class="mt-2 text-sm text-slate-400">a living bestiary of spirit-animals</p>
+        </div>
+    </header>
+
+    <!-- Featured Spirits -->
+    <section class="container mx-auto px-4 py-12">
+        <h2 class="text-xl font-light mb-8 text-center">latest manifestations</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <!-- Featured Spirit 1 -->
+            <div class="spirit-card rounded-xl p-6 cursor-pointer" onclick="openModal('https://www.youtube.com/embed/dQw4w9WgXcQ')" data-aos="fade-up">
+                <div class="flex justify-between items-start">
+                    <span class="text-xs text-slate-400">spirit.017</span>
+                    <span class="text-xs text-purple-300">new</span>
+                </div>
+                <div class="my-6 flex justify-center">
+                    <img src="http://static.photos/black/640x360/1" alt="Luminous Stag" class="h-40 w-40 object-contain spirit-silhouette">
+                </div>
+                <h3 class="text-lg font-light text-center">luminous stag</h3>
+                <p class="text-xs text-slate-400 mt-2 text-center">guardian of forgotten pathways</p>
+            </div>
+
+            <!-- Featured Spirit 2 -->
+            <div class="spirit-card rounded-xl p-6 cursor-pointer" onclick="openModal('https://www.youtube.com/embed/dQw4w9WgXcQ')" data-aos="fade-up" data-aos-delay="100">
+                <div class="flex justify-between items-start">
+                    <span class="text-xs text-slate-400">spirit.016</span>
+                </div>
+                <div class="my-6 flex justify-center">
+                    <img src="http://static.photos/black/640x360/2" alt="Veil Raven" class="h-40 w-40 object-contain spirit-silhouette">
+                </div>
+                <h3 class="text-lg font-light text-center">veil raven</h3>
+                <p class="text-xs text-slate-400 mt-2 text-center">messenger between realms</p>
+            </div>
+
+            <!-- Featured Spirit 3 -->
+            <div class="spirit-card rounded-xl p-6 cursor-pointer" onclick="openModal('https://www.youtube.com/embed/dQw4w9WgXcQ')" data-aos="fade-up" data-aos-delay="200">
+                <div class="flex justify-between items-start">
+                    <span class="text-xs text-slate-400">spirit.015</span>
+                </div>
+                <div class="my-6 flex justify-center">
+                    <img src="http://static.photos/black/640x360/3" alt="Ember Fox" class="h-40 w-40 object-contain spirit-silhouette">
+                </div>
+                <h3 class="text-lg font-light text-center">ember fox</h3>
+                <p class="text-xs text-slate-400 mt-2 text-center">keeper of hidden truths</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Spirit Catalog Grid -->
+    <section class="container mx-auto px-4 py-12">
+        <h2 class="text-xl font-light mb-8 text-center">the archive</h2>
+        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
+            <!-- Spirit Card Template - Repeat for each spirit -->
+            <div class="spirit-card rounded-lg p-4 cursor-pointer" onclick="openModal('https://www.youtube.com/embed/dQw4w9WgXcQ')" data-aos="fade-up">
+                <span class="text-xs text-slate-400">spirit.014</span>
+                <div class="my-4 flex justify-center">
+                    <img src="http://static.photos/black/320x240/4" alt="Mist Wolf" class="h-24 w-24 object-contain spirit-silhouette">
+                </div>
+                <h3 class="text-sm font-light text-center">mist wolf</h3>
+            </div>
+
+            <div class="spirit-card rounded-lg p-4 cursor-pointer" onclick="openModal('https://www.youtube.com/embed/dQw4w9WgXcQ')" data-aos="fade-up" data-aos-delay="50">
+                <span class="text-xs text-slate-400">spirit.013</span>
+                <div class="my-4 flex justify-center">
+                    <img src="http://static.photos/black/320x240/5" alt="Dusk Owl" class="h-24 w-24 object-contain spirit-silhouette">
+                </div>
+                <h3 class="text-sm font-light text-center">dusk owl</h3>
+            </div>
+
+            <div class="spirit-card rounded-lg p-4 cursor-pointer" onclick="openModal('https://www.youtube.com/embed/dQw4w9WgXcQ')" data-aos="fade-up" data-aos-delay="100">
+                <span class="text-xs text-slate-400">spirit.012</span>
+                <div class="my-4 flex justify-center">
+                    <img src="http://static.photos/black/320x240/6" alt="Shade Panther" class="h-24 w-24 object-contain spirit-silhouette">
+                </div>
+                <h3 class="text-sm font-light text-center">shade panther</h3>
+            </div>
+
+            <div class="spirit-card rounded-lg p-4 cursor-pointer" onclick="openModal('https://www.youtube.com/embed/dQw4w9WgXcQ')" data-aos="fade-up" data-aos-delay="150">
+                <span class="text-xs text-slate-400">spirit.011</span>
+                <div class="my-4 flex justify-center">
+                    <img src="http://static.photos/black/320x240/7" alt="Bramble Hare" class="h-24 w-24 object-contain spirit-silhouette">
+                </div>
+                <h3 class="text-sm font-light text-center">bramble hare</h3>
+            </div>
+
+            <div class="spirit-card rounded-lg p-4 cursor-pointer" onclick="openModal('https://www.youtube.com/embed/dQw4w9WgXcQ')" data-aos="fade-up" data-aos-delay="200">
+                <span class="text-xs text-slate-400">spirit.010</span>
+                <div class="my-4 flex justify-center">
+                    <img src="http://static.photos/black/320x240/8" alt="Gale Hawk" class="h-24 w-24 object-contain spirit-silhouette">
+                </div>
+                <h3 class="text-sm font-light text-center">gale hawk</h3>
+            </div>
+
+            <div class="spirit-card rounded-lg p-4 cursor-pointer" onclick="openModal('https://www.youtube.com/embed/dQw4w9WgXcQ')" data-aos="fade-up" data-aos-delay="250">
+                <span class="text-xs text-slate-400">spirit.009</span>
+                <div class="my-4 flex justify-center">
+                    <img src="http://static.photos/black/320x240/9" alt="Moon Moth" class="h-24 w-24 object-contain spirit-silhouette">
+                </div>
+                <h3 class="text-sm font-light text-center">moon moth</h3>
+            </div>
+
+            <div class="spirit-card rounded-lg p-4 cursor-pointer" onclick="openModal('https://www.youtube.com/embed/dQw4w9WgXcQ')" data-aos="fade-up" data-aos-delay="300">
+                <span class="text-xs text-slate-400">spirit.008</span>
+                <div class="my-4 flex justify-center">
+                    <img src="http://static.photos/black/320x240/10" alt="Rime Fox" class="h-24 w-24 object-contain spirit-silhouette">
+                </div>
+                <h3 class="text-sm font-light text-center">rime fox</h3>
+            </div>
+
+            <div class="spirit-card rounded-lg p-4 cursor-pointer" onclick="openModal('https://www.youtube.com/embed/dQw4w9WgXcQ')" data-aos="fade-up" data-aos-delay="350">
+                <span class="text-xs text-slate-400">spirit.007</span>
+                <div class="my-4 flex justify-center">
+                    <img src="http://static.photos/black/320x240/11" alt="Whisper Lynx" class="h-24 w-24 object-contain spirit-silhouette">
+                </div>
+                <h3 class="text-sm font-light text-center">whisper lynx</h3>
+            </div>
+
+            <div class="spirit-card rounded-lg p-4 cursor-pointer" onclick="openModal('https://www.youtube.com/embed/dQw4w9WgXcQ')" data-aos="fade-up" data-aos-delay="400">
+                <span class="text-xs text-slate-400">spirit.006</span>
+                <div class="my-4 flex justify-center">
+                    <img src="http://static.photos/black/320x240/12" alt="Dew Spider" class="h-24 w-24 object-contain spirit-silhouette">
+                </div>
+                <h3 class="text-sm font-light text-center">dew spider</h3>
+            </div>
+
+            <div class="spirit-card rounded-lg p-4 cursor-pointer" onclick="openModal('https://www.youtube.com/embed/dQw4w9WgXcQ')" data-aos="fade-up" data-aos-delay="450">
+                <span class="text-xs text-slate-400">spirit.005</span>
+                <div class="my-4 flex justify-center">
+                    <img src="http://static.photos/black/320x240/13" alt="Glow Newt" class="h-24 w-24 object-contain spirit-silhouette">
+                </div>
+                <h3 class="text-sm font-light text-center">glow newt</h3>
+            </div>
+
+            <!-- Add more spirit cards as needed -->
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="gradient-bg mt-16 py-16">
+        <div class="container mx-auto px-4 max-w-3xl text-center" data-aos="fade-up">
+            <p class="text-lg font-light leading-relaxed">
+                wispix is a growing archive of digital spirit-animals. each entry unveils a new form, name, and story — like a living codex.
+            </p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="container mx-auto px-4 py-12">
+        <div class="flex flex-col items-center">
+            <div class="flex space-x-6 mb-6">
+                <a href="#" class="text-slate-400 hover:text-purple-300 transition-colors">
+                    <i data-feather="youtube"></i>
+                </a>
+                <a href="#" class="text-slate-400 hover:text-purple-300 transition-colors">
+                    <i data-feather="instagram"></i>
+                </a>
+                <a href="#" class="text-slate-400 hover:text-purple-300 transition-colors">
+                    <i data-feather="tiktok"></i>
+                </a>
+            </div>
+            <p class="text-xs text-slate-500">next spirit reveal: ???</p>
+        </div>
+    </footer>
+
+    <!-- Modal -->
+    <div id="spiritModal" class="fixed inset-0 z-50 flex items-center justify-center modal-overlay opacity-0 pointer-events-none transition-opacity duration-300">
+        <div class="relative w-full max-w-4xl mx-4">
+            <div class="bg-slate-900 rounded-xl overflow-hidden">
+                <div class="aspect-w-16 aspect-h-9">
+                    <iframe id="spiritVideo" class="w-full h-96" src="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+            </div>
+            <button onclick="closeModal()" class="absolute -top-4 -right-4 bg-slate-900 rounded-full p-2 text-slate-400 hover:text-white transition-colors">
+                <i data-feather="x"></i>
+            </button>
+        </div>
+    </div>
+
+    <script>
+        // Initialize animations and icons
+        AOS.init({
+            duration: 600,
+            easing: 'ease-out-quart',
+            once: true
+        });
+        feather.replace();
+
+        // Modal functions
+        function openModal(videoUrl) {
+            const modal = document.getElementById('spiritModal');
+            const videoFrame = document.getElementById('spiritVideo');
+            
+            videoFrame.src = videoUrl + '?autoplay=1';
+            modal.classList.remove('pointer-events-none');
+            modal.classList.add('opacity-100');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('spiritModal');
+            const videoFrame = document.getElementById('spiritVideo');
+            
+            videoFrame.src = '';
+            modal.classList.add('pointer-events-none');
+            modal.classList.remove('opacity-100');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close modal when clicking outside
+        document.getElementById('spiritModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeModal();
+            }
+        });
+    </script>
+</body>
+</html>
